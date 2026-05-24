@@ -72,7 +72,7 @@ You can set the behavior of malloc either in the malloc_strike.c file or by sett
 #### Or set flag during compilation
 
 ```bash
-cc -MAX_MALLOC_BYTES=20 -MAX_MALLOC_CALLS=10 your_program.c malloc_strike.c
+cc -DMAX_MALLOC_BYTES=20 -DMAX_MALLOC_CALLS=10 your_program.c malloc_strike.c
 ```
 
 *Replace `your_program.c` with your target file name.*
