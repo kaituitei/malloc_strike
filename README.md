@@ -4,15 +4,11 @@ This program's purpose is to check for any improper malloc handling by replacing
 
 ### Behavior Setting Options
 
-In `malloc_strike.c`, you can change these settings to configure malloc behavior:
-
-```c
-#define MAX_MALLOC_CALLS    10000       // maximum number of malloc calls
-#define MAX_MALLOC_BYTES    1000000     // maximum number of bytes allocated (1MB default)
-#define MALLOC_ID_FAIL      -1UL        // forces the malloc of that ID to fail (-1UL to unset)
-#define PRINT_WARNINGS      true        // enable warnings (not necessarily a fail)
-#define PRINT_CALLS         true        // print all malloc calls
-```
+MAX_MALLOC_CALLS : Maximum number of malloc calls
+MAX_MALLOC_BYTES : Maximum number of bytes allocated (1MB default)
+MALLOC_ID_FAIL   : Forces the malloc of that ID to fail (-1UL to unset)
+PRINT_WARNINGS   : Enable warnings (not necessarily a fail)
+PRINT_CALLS      : Print all malloc calls
 
 ## Quick Start
 
@@ -33,7 +29,7 @@ rm -rf malloc_strike
 
 ### Repository Structure
 
-```
+```bash
 .
 ├── malloc_strike.c
 └── test.c
@@ -44,7 +40,35 @@ rm -rf malloc_strike
 Compile `malloc_strike.c` with your target program:
 
 ```bash
-cc -Wall -Werror -Wextra your_program.c malloc_strike.c
+cc your_program.c malloc_strike.c
+```
+
+You can set the behavior of malloc either in the malloc_strike.c file or by setting flags during compilation.
+
+#### Change setting directly in file
+
+```c
+#ifndef MAX_MALLOC_CALLS
+# define	MAX_MALLOC_CALLS	10000		// maximum number of malloc calls
+#endif
+#ifndef MAX_MALLOC_BYTES
+# define	MAX_MALLOC_BYTES	1000000		// maximum number of bytes allocated (1MB default)
+#endif
+#ifndef MALLOC_ID_FAIL
+# define	MALLOC_ID_FAIL		-1UL		// forces the malloc of that ID to fail (-1UL to unset).
+#endif
+#ifndef PRINT_WARNINGS
+# define	PRINT_WARNINGS		true		// enable warnings (not necessary a fail)
+#endif
+#ifndef PRINT_CALLS
+# define	PRINT_CALLS			true		// print all malloc calls
+#endif
+```
+
+#### Or set flag during compilation
+
+```bash
+cc -MAX_MALLOC_BYTES=20 -MAX_MALLOC_CALLS=10 your_program.c malloc_strike.c
 ```
 
 *Replace `your_program.c` with your target file name.*
