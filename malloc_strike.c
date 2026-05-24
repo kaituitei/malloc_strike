@@ -5,11 +5,21 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-# define	MAX_MALLOC_CALLS	10000		// maximum number of malloc calls
-# define	MAX_MALLOC_BYTES	1000000		// maximum number of bytes allocated (1MB default)
-# define	MALLOC_ID_FAIL		-1UL		// forces the malloc of that ID to fail (-1UL to unset).
-# define	PRINT_WARNINGS		true		// enable warnings (not necessary a fail)
-# define	PRINT_CALLS			true		// print all malloc calls
+# ifndef MAX_MALLOC_CALLS
+#  define	MAX_MALLOC_CALLS	10000		// maximum number of malloc calls
+# endif
+# ifndef MAX_MALLOC_BYTES
+#  define	MAX_MALLOC_BYTES	1000000		// maximum number of bytes allocated (1MB default)
+# endif
+# ifndef MALLOC_ID_FAIL
+#  define	MALLOC_ID_FAIL		-1UL		// forces the malloc of that ID to fail (-1UL to unset).
+# endif
+# ifndef PRINT_WARNINGS
+#  define	PRINT_WARNINGS		true		// enable warnings (not necessary a fail)
+# endif
+# ifndef PRINT_CALLS
+#  define	PRINT_CALLS		true		// print all malloc calls
+# endif
 
 typedef struct s_mtrace
 {
