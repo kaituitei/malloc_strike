@@ -2,13 +2,17 @@
 
 This program's purpose is to check for any improper malloc handling by replacing the real malloc with a custom malloc. After that, you can set the behavior of malloc as you wish.
 
-### Behavior Setting Options
+### Behavior Setting Options:
 
-MAX_MALLOC_CALLS : Maximum number of malloc calls
-MAX_MALLOC_BYTES : Maximum number of bytes allocated (1MB default)
-MALLOC_ID_FAIL   : Forces the malloc of that ID to fail (-1UL to unset)
-PRINT_WARNINGS   : Enable warnings (not necessarily a fail)
-PRINT_CALLS      : Print all malloc calls
+**MAX_MALLOC_CALLS** : Maximum number of malloc calls
+
+**MAX_MALLOC_BYTES** : Maximum number of bytes allocated (1MB default)
+
+**MALLOC_ID_FAIL**   : Forces the malloc of that ID to fail (-1UL to unset)
+
+**PRINT_WARNINGS**   : Enable warnings (not necessarily a fail)
+
+**PRINT_CALLS**      : Print all malloc calls
 
 ## Quick Start
 
